@@ -3,14 +3,17 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
--task: Maven@1
+- task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    options: '-X -B -s $(mvnSettings.secureFilePath) -DWHERE="AzureDevops" -DremoteRepositories=$(mavenRepoUrl) clean deploy -U'
+    goals: 'deploy'
+    options: '-s $(mvnSettings.secureFilePath)'
     mavenAuthenticateFeed: true
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'
+    mavenVersionOption: 'Default'
 - task: CmdLine@2
   inputs:
   script: |
