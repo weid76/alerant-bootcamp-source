@@ -3,13 +3,7 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
--task: Maven@1
-    inputs:
-        mavenPOMFile: 'pom.xml'
-        javaHomeOption: 'JDKVersion' 
-        mavenVersionOption: 'Default'
-
-- task: CmdLine@2
+-task: CmdLine@2
     inputs:
         script: |
             buildah bud --tls-verify=0 --format=docker -t
@@ -17,4 +11,4 @@
             Dockerfile .
             buildah login --tls-verify=0 -u alerantdevopsbootcamp -p
             VQq7EvmIbRzlT9N6Z/HA4xND8=dQYyYg alerantdevopsbootcamp.azurecr.io
-            buildah push alerantdevopsbootcamp.azurecr.io/bootcamp/student5
+            buildah push alerantdevopsbootcamp.azurecr.io/bootcamp/demoapp_student5
