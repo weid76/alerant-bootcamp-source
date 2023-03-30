@@ -3,7 +3,7 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-- task: Maven@3
+-task: Maven@1
   inputs:
     mavenPomFile: 'pom.xml'
     options: '-X -B -s $(mvnSettings.secureFilePath) -DWHERE="AzureDevops" -DremoteRepositories=$(mavenRepoUrl) clean deploy -U'
