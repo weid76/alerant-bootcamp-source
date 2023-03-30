@@ -3,7 +3,7 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-- task: CmdLine@2
+-task: CmdLine@2
 inputs:
 script:
 buildah bud --tls-verify=0 --format=docker -t
